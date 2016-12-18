@@ -1,0 +1,6 @@
+
+function say(){
+
+alert("hi");
+}
+
