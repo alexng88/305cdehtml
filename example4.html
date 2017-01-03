@@ -1,0 +1,40 @@
+<html>
+
+<script>
+
+function formsend(){
+  alert("send");
+var http = new XMLHttpRequest();
+var postdata= "foo=bar&baz=hey"; //Probably need the escape method for values here, like you did
+
+
+http.open("GET", "fromexample4.html", true);
+//Send the proper header information along with the request
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+http.setRequestHeader("Content-length", postdata.length);
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+   if(http.readyState == 4 && http.status == 200) {
+     alert("ok");
+      alert(http.responseText);
+   }
+   
+ };
+  
+  http.send(postdata);
+ 
+}
+</script>
+
+
+<body onload="g()">
+
+<button id="p" onclick="formsend()">Send</button>
+
+
+
+</body>
+
+
+
+</html>
